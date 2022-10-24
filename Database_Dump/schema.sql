@@ -1,8 +1,10 @@
+drop database if exists hotel;
 create database hotel;
 use hotel;
 create table rooms (
 	room_id INT PRIMARY KEY,
-	price INT
+	price INT,
+	img VARCHAR(50)
 );
 create table users (
 	username VARCHAR(50) PRIMARY KEY NOT NULL,
@@ -47,16 +49,16 @@ create table posts (
     FOREIGN KEY (news_id) REFERENCES news(news_id)
 );
 
-insert into rooms (room_id, price) values (1, 62);
-insert into rooms (room_id, price) values (2, 38);
-insert into rooms (room_id, price) values (3, 24);
-insert into rooms (room_id, price) values (4, 18);
-insert into rooms (room_id, price) values (5, 74);
-insert into rooms (room_id, price) values (6, 14);
-insert into rooms (room_id, price) values (7, 31);
-insert into rooms (room_id, price) values (8, 36);
-insert into rooms (room_id, price) values (9, 51);
-insert into rooms (room_id, price) values (10, 20);
+insert into rooms (room_id, price, img) values (1, 62,'room1.jpg');
+insert into rooms (room_id, price, img) values (2, 38,'room2.jpg');
+insert into rooms (room_id, price, img) values (3, 24,'room3.jpg');
+insert into rooms (room_id, price, img) values (4, 18,'room4.jpg');
+insert into rooms (room_id, price, img) values (5, 74,'room5.jpg');
+insert into rooms (room_id, price, img) values (6, 14,'room6.jpg');
+insert into rooms (room_id, price, img) values (7, 31,'room7.jpg');
+insert into rooms (room_id, price, img) values (8, 36,'room8.jpg');
+insert into rooms (room_id, price, img) values (9, 51,'room9.jpg');
+insert into rooms (room_id, price, img) values (10, 20,'room10.jpg');
 
 insert into users (username, first_name, last_name, email, gender, passwrord, title, is_admin, is_active ) values ('nkernermann0', 'Nixie', 'Kernermann', 'nkernermann0@census.gov', 'Female', 'Y26rCVMO', 'Mrs', false, false);
 insert into users (username, first_name, last_name, email, gender, passwrord, title, is_admin, is_active ) values ('jvamplew1', 'Jozef', 'Vamplew', 'jvamplew1@weebly.com', 'Male', 'H7tjrmfC90', 'Mrs', false, false);
