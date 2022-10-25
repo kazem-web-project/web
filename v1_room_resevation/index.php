@@ -1,10 +1,3 @@
-https://www.youtube.com/watch?v=dhlLuqLkcCg
-
-1-user management:
-https://www.youtube.com/watch?v=wODW8RLBPt0
-
-2-nav bar
-https://www.youtube.com/watch?v=ZMW1e7PwA8M
 <?php
     require_once('./inc/component.php');
     require_once('./inc/database.php');
