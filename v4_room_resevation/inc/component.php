@@ -36,3 +36,24 @@ function component($room_id, $price, $image){
     ";
     echo $element;
 }
+
+
+function news_component($news_id,$news_image,$news_title,$news_text,$news_date){
+    // TODO: implement news divs!
+
+
+    $element = "
+
+    <div>
+        <img src=\"res/img/$news_image\" alt=\"$news_title\" class=\"img-fluid card-img-top myimage\">
+    </div>
+    <div class=\"card-body\">
+        <h5 class=\"card-title\">$news_title</h5>
+        <p class=\"card-text\">
+            <small>{$news_text} created on: {$news_date}</small>
+        </p>
+    </div>
+    ";
+    echo $element;
+
+}

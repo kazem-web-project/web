@@ -1,4 +1,5 @@
-component.php:
+start of making the news page!
+-----------------------------
 user can reserve a room in the database!
 
 
