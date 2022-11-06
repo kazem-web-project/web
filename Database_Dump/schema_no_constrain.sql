@@ -32,11 +32,12 @@ create table reserves (
 );
 
 create table news (
-	news_id INT,
+	news_id int NOT NULL AUTO_INCREMENT,
 	image VARCHAR(100),
 	title VARCHAR(100),
 	text VARCHAR(500),
-	date TIMESTAMP  default CURRENT_TIMESTAMP
+	date TIMESTAMP  default CURRENT_TIMESTAMP,
+	primary key (news_id)
 );
 
 create table posts (
