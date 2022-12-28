@@ -29,7 +29,7 @@ create table reserves (
 	has_breakfast VARCHAR(50),
 	reserved_on TIMESTAMP  default CURRENT_TIMESTAMP,
 	is_approved VARCHAR(50),
-	PRIMARY KEY(username, room_id),
+	PRIMARY KEY(username, reserved_on),
 	FOREIGN KEY (username) REFERENCES users(username),
 	FOREIGN KEY (room_id) REFERENCES rooms(room_id)
 );
