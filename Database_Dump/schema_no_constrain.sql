@@ -1,6 +1,9 @@
 drop database if exists hotel;
 create database hotel;
 use hotel;
+
+drop user 'hotel'@'localhost';
+flush privileges;
 CREATE USER 'hotel'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON hotel.* TO 'hotel'@'localhost' ;
 create table rooms (
@@ -14,7 +17,7 @@ create table users (
 	last_name VARCHAR(50),
 	email VARCHAR(50),
 	gender VARCHAR(50),
-	password VARCHAR(50),
+	password VARCHAR(60),
 	title VARCHAR(50),
 	is_admin BOOLEAN,
 	is_active  BOOLEAN 
@@ -65,10 +68,10 @@ insert into users (username, first_name, last_name, email, gender, password, tit
 insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('eskyrme4', 'Elli', 'Skyrme', 'eskyrme4@mozilla.com', 'Female', 'Esnr7ffuVtUq', 'Mr', false, true);
 insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('hva5', 'Honor', 'Vasyukhichev', 'hvasyukhichev5@acquirethisname.com', 'Female', 'MGesPEl', 'Rev', true, true);
 
-insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on) values ('fblann2', 1, '2021-12-01', '2021-12-10', 194, true, false, false, '2021-12-01',1);
-insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on) values ('jvamplew1', 2, '2022-12-10', '2022-12-20', 226, true, false, false, '2022-12-10',0);
-insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on) values ('rdu3', 3, '2022-12-25', '2022-12-28', 54, true, false, false, '2022-12-25',1);
-insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on) values ('eskyrme4', 4, '2023-01-01', '2023-01-10', 157, false, true, true, '2023-01-01',0);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('fblann2', 1, '2021-12-01', '2021-12-10', 194, true, false, false, '2021-12-01',1);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('jvamplew1', 2, '2022-12-10', '2022-12-20', 226, true, false, false, '2022-12-10',0);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('rdu3', 3, '2022-12-25', '2022-12-28', 54, true, false, false, '2022-12-25',1);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('eskyrme4', 4, '2023-01-01', '2023-01-10', 157, false, true, true, '2023-01-01',0);
 
 insert into news (news_id, image, title, text, date) values (1, 'news1.jpg', 'HEB', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2022-10-01');
 insert into news (news_id, image, title, text, date) values (2, 'news2.jpg', 'Sandoz Inc', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.', '2022-10-10');

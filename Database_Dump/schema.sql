@@ -1,6 +1,9 @@
 drop database if exists hotel;
 create database hotel;
 use hotel;
+
+drop user 'hotel'@'localhost';
+flush privileges;
 CREATE USER 'hotel'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON hotel.* TO 'hotel'@'localhost' ;
 create table rooms (
@@ -14,11 +17,12 @@ create table users (
 	last_name VARCHAR(50),
 	email VARCHAR(50),
 	gender VARCHAR(50),
-	password VARCHAR(50),
+	password VARCHAR(60),
 	title VARCHAR(50),
 	is_admin BOOLEAN,
 	is_active  BOOLEAN 
 );
+
 
 create table reserves (
 	username VARCHAR(50),
@@ -63,12 +67,10 @@ insert into rooms (room_id, price, img) values (8, 36,'room8.jpg');
 insert into rooms (room_id, price, img) values (9, 51,'room9.jpg');
 insert into rooms (room_id, price, img) values (10, 20,'room10.jpg');
 
-insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('nkernermann0', 'Nixie', 'Kernermann', 'nkernermann0@census.gov', 'Female', 'Y26rCVMO', 'Mrs', false, false);
-insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('jvamplew1', 'Jozef', 'Vamplew', 'jvamplew1@weebly.com', 'Male', 'H7tjrmfC90', 'Mrs', false, false);
-insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('fblann2', 'Fons', 'Blann', 'fblann2@ameblo.jp', 'Male', 'FLkgQdCW', 'Mrs', false, false);
-insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('rdu3', 'Rhona', 'Dusting', 'rdusting3@opensource.org', 'Female', 'fDboGES', 'Honorable', true, true);
-insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('eskyrme4', 'Elli', 'Skyrme', 'eskyrme4@mozilla.com', 'Female', 'Esnr7ffuVtUq', 'Mr', false, true);
-insert into users (username, first_name, last_name, email, gender, password, title, is_admin, is_active ) values ('hva5', 'Honor', 'Vasyukhichev', 'hvasyukhichev5@acquirethisname.com', 'Female', 'MGesPEl', 'Rev', true, true);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('fblann2', 1, '2021-12-01', '2021-12-10', 194, true, false, false, '2021-12-01',1);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('jvamplew1', 2, '2022-12-10', '2022-12-20', 226, true, false, false, '2022-12-10',0);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('rdu3', 3, '2022-12-25', '2022-12-28', 54, true, false, false, '2022-12-25',1);
+insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on,is_approved) values ('eskyrme4', 4, '2023-01-01', '2023-01-10', 157, false, true, true, '2023-01-01',0);
 
 insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on) values ('fblann2', 1, '2021-12-01', '2021-12-10', 194, true, false, false, '2021-12-01',1);
 insert into reserves (username, room_id, from_date, to_date, price, has_animal, has_parking, has_breakfast, reserved_on) values ('jvamplew1', 2, '2022-12-10', '2022-12-20', 226, true, false, false, '2022-12-10',0);
