@@ -1,5 +1,7 @@
 <?php
 
+use LDAP\Result;
+
 class HotelDatabase
 {
     public $servername;
@@ -207,6 +209,20 @@ class HotelDatabase
             echo "New record created successfully";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($this->con);
+        }
+    }
+
+    public function room_is_free($room_id, $from_date,$to_date){
+        $sql ="select * from reserves where not (('$to_date'< from_date and '$from_date' < from_date) or ('$to_date'> to_date and '$from_date' > to_date )) and room_id='$room_id';";
+        
+        // echo $sql;
+        $result = mysqli_query($this->con, $sql);
+        if(mysqli_num_rows($result)>0){
+            var_dump($result);
+            return false;
+        }else{
+
+            return true;
         }
     }
 }

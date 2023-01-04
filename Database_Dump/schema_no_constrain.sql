@@ -2,7 +2,7 @@ drop database if exists hotel;
 create database hotel;
 use hotel;
 
-drop user 'hotel'@'localhost';
+drop user if exists 'hotel'@'localhost';
 flush privileges;
 CREATE USER 'hotel'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON hotel.* TO 'hotel'@'localhost' ;

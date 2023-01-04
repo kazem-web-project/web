@@ -36,14 +36,15 @@ if (isset($_POST['from_date']) && isset($_POST['to_date'])) {
     ($_POST['pet_checkbox'] == "1") ? $pet_price = 10 : $pet_price = 0;
     // echo $pet_price;
     $room_price = ($stay_days * $room_price_input);
+    echo $room_price . "roooooooooooooom";
     $end_price = $room_price + $parking_price + $breakfast_price + $pet_price;
 
     echo " " . $end_price . "  " . $room_price . "  " . $parking_price . "  " . $breakfast_price . "  " . $pet_price;
     // insert_reserve($username_insert, $room_id_insert,$from_date_insert,$to_date_insert, $price_insert, $has_animal_insert, $has_parking_insert,$has_breakfast_insert, $reserved_on_insert)
     $date1 = new DateTime($_POST['from_date']);
     $date2 = new DateTime($_POST['to_date']);
-
-    if ($date2 > $date1) {
+    
+    if ($date2 > $date1 && ($database->room_is_free($_GET['room_id'], $_POST['from_date'],$_POST['to_date']))) {
         $database->insert_reserve(
             $user_name,
             $_GET['room_id'],
@@ -57,7 +58,8 @@ if (isset($_POST['from_date']) && isset($_POST['to_date'])) {
             0
         );
     } else {
-        header("Location: rooms.php");
+        //header("Location: rooms.php");
+        echo("<h2><b>The room is not available in this period of time!<br>Please choose other dates or start date should be before end date</b></h2>");
         exit();
     }
 

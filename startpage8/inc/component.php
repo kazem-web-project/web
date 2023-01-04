@@ -75,7 +75,7 @@ function news_component_admin($news_id,$news_image,$news_title,$news_text,$news_
             <div class=\"card-body\">
             <h5 class=\"card-title\">$news_title</h5>
             <p class=\"card-text\">
-                <small>{$news_text} created on: {$news_date}</small>
+                <small>{$news_text} <br><div class=\"text-right\"><b >created on: {$news_date}</b></div></small>
             </p>
             <button type=\"submit\" class=\"btn btn-danger float-end\" name=\"news_$news_id\">Delete</button>
         </div>

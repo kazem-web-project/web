@@ -69,8 +69,9 @@ if (isset($_SESSION) && !empty($_SESSION)) {
         echo $_POST["new_password2"] .  "   " . $_POST["new_password1"].  "   " . $_POST["password"].  "   " . $_SESSION["target_user_password"]; 
 
         // modify another user by admin! GET + POST
-//        if(((isset($_POST)) && !empty($_POST)) && (($_POST["new_password1"]== $_POST["new_password2"]) &&($_POST["password"] == $_SESSION["target_user_password"])) ){
-        if(((isset($_POST)) && !empty($_POST)) && (($_POST["new_password1"]== $_POST["new_password2"]) &&(password_verify($_POST["password"] ,$_SESSION["target_user_password"])))){
+//        if(((isset($_POST)) && !empty($_POST)) && (($_POST["new_password1"]== $_POST["new_password2"]) &&(password_verify($_POST["password"] ,$_SESSION["target_user_password"])))){
+
+        if(((isset($_POST)) && !empty($_POST)) && (($_POST["new_password1"]== $_POST["new_password2"]))){
 
             $first_name = $_POST["first_name"];
             $last_name = $_POST["last_name"];
@@ -203,7 +204,7 @@ var_dump($_SESSION);
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Old Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="" required>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="">
                     </div>
 
                     <div class="form-group">
